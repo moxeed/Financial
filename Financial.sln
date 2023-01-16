@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial", "Financial\Financial.csproj", "{162B5BF4-44BC-4413-8475-06A513CDC117}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{2C07E967-A504-42CA-8FEA-FC0C62775C64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FD50C9DC-C422-4EF5-BA36-4D78744BF3C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Inventory", "Financial.Inventory\Financial.Inventory.csproj", "{C71AB70E-21A5-43CF-BE14-1C138EADE02F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Ordering", "Financial.Ordering\Financial.Ordering.csproj", "{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Treasury", "Financial.Treasury\Financial.Treasury.csproj", "{A284F0A1-0A0F-444B-9EC6-6023D46B68DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial.ZarinPal", "Financial.ZarinPal\Financial.ZarinPal.csproj", "{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{162B5BF4-44BC-4413-8475-06A513CDC117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162B5BF4-44BC-4413-8475-06A513CDC117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162B5BF4-44BC-4413-8475-06A513CDC117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162B5BF4-44BC-4413-8475-06A513CDC117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71AB70E-21A5-43CF-BE14-1C138EADE02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71AB70E-21A5-43CF-BE14-1C138EADE02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71AB70E-21A5-43CF-BE14-1C138EADE02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71AB70E-21A5-43CF-BE14-1C138EADE02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A284F0A1-0A0F-444B-9EC6-6023D46B68DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A284F0A1-0A0F-444B-9EC6-6023D46B68DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A284F0A1-0A0F-444B-9EC6-6023D46B68DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A284F0A1-0A0F-444B-9EC6-6023D46B68DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C71AB70E-21A5-43CF-BE14-1C138EADE02F} = {2C07E967-A504-42CA-8FEA-FC0C62775C64}
+		{C6EE8D80-F5D8-49AC-8EF2-4D6FB41593AA} = {2C07E967-A504-42CA-8FEA-FC0C62775C64}
+		{A284F0A1-0A0F-444B-9EC6-6023D46B68DD} = {2C07E967-A504-42CA-8FEA-FC0C62775C64}
+		{DCE91F98-E19E-4453-80E0-93CD4EFA8F8E} = {FD50C9DC-C422-4EF5-BA36-4D78744BF3C7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9352C072-DBD2-409B-AB1B-AC8C97A0F91A}
+	EndGlobalSection
+EndGlobal
