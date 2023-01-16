@@ -11,15 +11,12 @@ namespace Financial.Treasury.Entities
         public List<Payment> Payments { get; set; }
         public string Description { get; set; }
 
-        private Reciept()
-        {
-        }
-
-        public Reciept(Account account, int amount, Guid issuerToken)
+        public Reciept(Account account, int amount, Guid issuerToken, string description)
         {
             Account = account;
             Amount = amount;
             IssuerToken = issuerToken;
+            Description = description;
             Payments = new List<Payment>();
         }
     }

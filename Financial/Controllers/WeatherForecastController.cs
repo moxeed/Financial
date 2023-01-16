@@ -18,7 +18,7 @@ namespace Financial.Controllers
         [HttpGet]
         public IActionResult CreateTerminal(int amount) { 
             var account = new Account { UserId = 100};
-            var reciept = new Reciept(account, amount, Guid.NewGuid());
+            var reciept = new Reciept(account, amount, Guid.NewGuid(), "Test Payment");
 
             var service = new ZarinPalService();
 
