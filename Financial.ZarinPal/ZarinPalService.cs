@@ -26,10 +26,7 @@ namespace Financial.ZarinPal
                         merchant_id = MerchantId
                     }).ReceiveString();
 
-                var resultObject = JsonConvert.DeserializeObject<VerifyResponse>(response, new JsonSerializerSettings
-                {
-                    Error = HandleDeserializationError
-                });
+                var resultObject = Deserialize<VerifyResponse>(response);
                 return resultObject.data.code == 100;
             }
             catch (FlurlHttpException exception)
@@ -53,10 +50,7 @@ namespace Financial.ZarinPal
                     description = reciept.Description
                 }).ReceiveString();
 
-                var resultObject = JsonConvert.DeserializeObject<PaymentResponse>(response, new JsonSerializerSettings
-                {
-                    Error = HandleDeserializationError
-                });
+                var resultObject = Deserialize<PaymentResponse>(response);
                 return resultObject.data.authority;
             }
             catch (FlurlHttpException exception)
@@ -65,6 +59,14 @@ namespace Financial.ZarinPal
                 Console.WriteLine(data);
                 throw;
             }
+        }
+
+        public T Deserialize<T>(string data)
+        {
+            return JsonConvert.DeserializeObject<T>(data, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
         }
 
         public void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
