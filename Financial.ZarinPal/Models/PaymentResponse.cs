@@ -2,16 +2,16 @@
 {
     public class PaymentResponse
     {
-        public PaymentData data { get; set; }
-        public Error errors { get; set; }
+        public PaymentData? Data { get; set; }
+        public Error? Errors { get; set; }
     }
 
     public class PaymentData
     {
-        public int code { get; set; }
-        public string message { get; set; }
-        public string authority { get; set; }
-        public string fee_type { get; set; }
-        public int fee { get; set; }
+        public int Code { get; set; }
+        public string Message { get; set; }
+        public string Authority { get; set; }
+        public string Fee_type { get; set; }
+        public int Fee { get; set; }
     }
 }

@@ -1,14 +1,14 @@
-﻿namespace Financial.Treasury.Entities
-{
-    public class Payment
-    {
-        public int Amount { get; set; }
-        public string Identifier { get; set; }
+﻿using Financial.Treasury.Abstractions;
 
-        public Payment(int amount, string identifier)
+namespace Financial.Treasury.Entities
+{
+    public class Payment : TransactionSource
+    {
+        public Payment(Account account, int amount, string description)
+            :base(account, amount, description)
         {
-            Amount = amount;
-            Identifier = identifier;
         }
+
+        private Payment() { }
     }
 }

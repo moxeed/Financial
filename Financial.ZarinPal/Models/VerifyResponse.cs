@@ -1,20 +1,22 @@
-﻿namespace Financial.ZarinPal.Models
+﻿using System.Net.Http.Headers;
+
+namespace Financial.ZarinPal.Models
 {
     public class VerifyResponse
     {
-        public VerifyData data { get; set; }
-        public Error errors { get; set; }
+        public VerifyData? Data { get; set; }
+        public Error? Errors { get; set; }
     }
 
     public class VerifyData
     {
-        public int code { get; set; }
-        public string message { get; set; }
-        public string card_hash { get; set; }
-        public string card_pan { get; set; }
-        public int ref_id { get; set; }
-        public string fee_type { get; set; }
-        public int fee { get; set; }
+        public int Code { get; set; }
+        public string Message { get; set; }
+        public string Card_hash { get; set; }
+        public string Card_pan { get; set; }
+        public int Ref_id { get; set; }
+        public string Fee_type { get; set; }
+        public int Fee { get; set; }
+        public bool IsSucceded => Code == 100 || Code == 101;
     }
-
 }

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Finanacial.Infrastructure\Finanacial.Infrastructure.csproj" />
     <ProjectReference Include="..\Financial.Treasury\Financial.Treasury.csproj" />
     <ProjectReference Include="..\Financial.ZarinPal\Financial.ZarinPal.csproj" />
   </ItemGroup>

@@ -2,17 +2,17 @@
 {
     public class PaymentRequest
     {
-        public string merchant_id { get; set; }
-        public int amount { get; set; }
-        public string callback_url { get; set; }
-        public string description { get; set; }
-        public Metadata metadata { get; set; }
+        public string Merchant_id { get; set; }
+        public int Amount { get; set; }
+        public string Callback_url { get; set; }
+        public string Description { get; set; }
+        public Metadata Metadata { get; set; }
     }
 
     public class Metadata
     {
-        public string mobile { get; set; }
-        public string email { get; set; }
+        public string Mobile { get; set; }
+        public string Email { get; set; }
     }
 }
 
