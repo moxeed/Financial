@@ -8,6 +8,6 @@ namespace Financial.ZarinPal.Dependencies
         void SaveTerminal(Terminal terminal);
         void SaveError(ErrorLog error);
         void SaveVerifyResult(VerifyResult verifyResult);
-        Terminal GetTerminal(Guid referenceCode);
+        Terminal? GetTerminal(int paymentId);
     }
 }

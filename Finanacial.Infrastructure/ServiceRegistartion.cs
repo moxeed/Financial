@@ -1,4 +1,5 @@
-﻿using Financial.ZarinPal.Dependencies;
+﻿using Finanacial.Infrastructure.ZarinPal;
+using Financial.ZarinPal.Dependencies;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Finanacial.Infrastructure

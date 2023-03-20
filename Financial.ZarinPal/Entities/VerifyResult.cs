@@ -1,12 +1,11 @@
 ﻿using Financial.Common;
 using Financial.ZarinPal.Models;
-using System;
 
 namespace Financial.ZarinPal.Entities
 {
     public class VerifyResult : Entity
     {
-        public Guid ReferenceCode { get; set; }
+        public int PaymentId { get; set; }
         public int Code { get; set; }
         public string Message { get; set; }
         public string CardHash { get; set; }
@@ -15,9 +14,10 @@ namespace Financial.ZarinPal.Entities
         public string FeeType { get; set; }
         public int Fee { get; set; }
 
+        private VerifyResult() { }
         public VerifyResult(Terminal terminal, VerifyData data)
         {
-            ReferenceCode = terminal.ReferenceCode;
+            PaymentId = terminal.PaymentId;
             Code = data.Code;
             Message = data.Message;
             CardHash = data.Card_hash;
@@ -25,10 +25,6 @@ namespace Financial.ZarinPal.Entities
             RefId = data.Ref_id;
             FeeType = data.Fee_type;
             Fee = data.Fee;
-        }
-
-        private VerifyResult()
-        {
         }
     }
 }

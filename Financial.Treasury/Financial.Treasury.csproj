@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Financial.Common\Financial.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-  </ItemGroup>
-
 </Project>

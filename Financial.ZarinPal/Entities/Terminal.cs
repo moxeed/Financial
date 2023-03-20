@@ -7,7 +7,7 @@ namespace Financial.ZarinPal.Entities
 {
     public class Terminal : Entity
     {
-        public Guid ReferenceCode { get; set; }
+        public int PaymentId { get; set; }
         public string Authority { get; set; }
         public int Code { get; set; }
         public int Amount { get; set; }
@@ -15,19 +15,16 @@ namespace Financial.ZarinPal.Entities
         public string FeeType { get; set; }
         public int Fee { get; set; }
 
+        private Terminal() { }
         public Terminal(Payment payment, PaymentData data)
         {
-            ReferenceCode = payment.ReferenceCode;
+            PaymentId = payment.Id;
             Amount = payment.Amount;
             Authority = data.Authority;
             Code = data.Code;
             Message = data.Message;
             FeeType = data.Fee_type;
             Fee = data.Fee;
-        }
-
-        private Terminal()
-        {
         }
     }
 }

@@ -1,24 +1,33 @@
 ﻿using Financial.Common;
 using Financial.Treasury.Entities;
 using Financial.ZarinPal.Models;
-using Newtonsoft.Json;
 using System;
+using System.Text.Json;
 
 namespace Financial.ZarinPal.Entities
 {
     public class ErrorLog : Entity
     {
-        public Guid ReferenceCode { get; set; }
+        public int PaymentId { get; set; }
+        public int Code { get; set; }
+        public string Message { get; set; }
         public string Data { get; set; }
 
         public ErrorLog(Payment payment, Error? error)
         {
-            ReferenceCode = payment.ReferenceCode;
+            PaymentId = payment.Id;
             if (error != null)
             {
-                Data = JsonConvert.SerializeObject(error);
+                Code = error.Code;
+                Message = error.Message;
+                Data = JsonSerializer.Serialize(error.Validations);
             }
-            Data = "Error Was NULL";
+            else
+            {
+                Code = int.MinValue;
+                Message = "Error Was NULL";
+                Data = "Error Was NULL";
+            }
         }
 
         private ErrorLog()
