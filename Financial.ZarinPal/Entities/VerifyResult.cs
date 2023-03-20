@@ -5,7 +5,6 @@ namespace Financial.ZarinPal.Entities
 {
     public class VerifyResult : Entity
     {
-        public int PaymentId { get; set; }
         public int Code { get; set; }
         public string Message { get; set; }
         public string CardHash { get; set; }
@@ -13,11 +12,11 @@ namespace Financial.ZarinPal.Entities
         public int RefId { get; set; }
         public string FeeType { get; set; }
         public int Fee { get; set; }
+        public Terminal Terminal { get; set; }
 
         private VerifyResult() { }
         public VerifyResult(Terminal terminal, VerifyData data)
         {
-            PaymentId = terminal.PaymentId;
             Code = data.Code;
             Message = data.Message;
             CardHash = data.Card_hash;
@@ -25,6 +24,7 @@ namespace Financial.ZarinPal.Entities
             RefId = data.Ref_id;
             FeeType = data.Fee_type;
             Fee = data.Fee;
+            Terminal = terminal;
         }
     }
 }
