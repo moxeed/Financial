@@ -5,6 +5,7 @@ namespace Financial.Treasury.Dependecies.PaymentService
 {
     public interface IPaymentService
     {
+        Task<bool> CreateTerminal(Payment payment);
         Task<bool> Verify(Payment payment);
     }
 }
