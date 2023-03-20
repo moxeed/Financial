@@ -14,7 +14,6 @@ namespace Financial.ZarinPal.Entities
         public int Fee { get; set; }
         public Terminal Terminal { get; set; }
 
-        private VerifyResult() { }
         public VerifyResult(Terminal terminal, VerifyData data)
         {
             Code = data.Code;
@@ -25,6 +24,9 @@ namespace Financial.ZarinPal.Entities
             FeeType = data.Fee_type;
             Fee = data.Fee;
             Terminal = terminal;
+        }
+        private VerifyResult() 
+        { 
         }
     }
 }

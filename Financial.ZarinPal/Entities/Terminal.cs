@@ -1,7 +1,6 @@
 ﻿using Financial.Common;
 using Financial.Treasury.Entities;
 using Financial.ZarinPal.Models;
-using System;
 
 namespace Financial.ZarinPal.Entities
 {
@@ -15,7 +14,6 @@ namespace Financial.ZarinPal.Entities
         public string FeeType { get; set; }
         public int Fee { get; set; }
 
-        private Terminal() { }
         public Terminal(Payment payment, PaymentData data)
         {
             PaymentId = payment.Id;
@@ -25,6 +23,9 @@ namespace Financial.ZarinPal.Entities
             Message = data.Message;
             FeeType = data.Fee_type;
             Fee = data.Fee;
+        }
+        private Terminal() 
+        {
         }
     }
 }
