@@ -3,7 +3,7 @@
     public enum OrderStateEnum : byte
     {
         Basket = 1,
-        Chekout = 2,
-        Done = 3
+        WaitingForPayment = 2,
+        Paid = 3
     }
 }

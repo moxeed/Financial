@@ -1,6 +1,7 @@
 using Financial.Treasury.Entities;
 using Financial.ZarinPal.Dependencies;
 using Financial.ZarinPal.Entities;
+using Microsoft.Extensions.Options;
 using Moq;
 
 namespace Financial.ZarinPal.Test
@@ -12,11 +13,11 @@ namespace Financial.ZarinPal.Test
         {
             var repository = new Mock<IZarinPalRepository>();
             var gateway = new Mock<IZarinPalGateWay>();
+            var options = new Mock<IOptions<ZarinPalOptions>>();
 
-            var service = new ZarinPalService(repository.Object, gateway.Object);
+            var service = new ZarinPalService(repository.Object, gateway.Object, options.Object);
 
-            var account = new Account() { UserId = 100 };
-            var payment = new Payment(account, 100, "test", "online");
+            var payment = new Payment(100, 100, 100, "test", "online", new List<Payment>());
             var code = 100;
             var message = "Success";
             Terminal? terminal = null;
@@ -48,11 +49,11 @@ namespace Financial.ZarinPal.Test
         {
             var repository = new Mock<IZarinPalRepository>();
             var gateway = new Mock<IZarinPalGateWay>();
+            var options = new Mock<IOptions<ZarinPalOptions>>();
 
-            var service = new ZarinPalService(repository.Object, gateway.Object);
+            var service = new ZarinPalService(repository.Object, gateway.Object, options.Object);
 
-            var account = new Account() { UserId = 100 };
-            var payment = new Payment(account, 100, "test", "online");
+            var payment = new Payment(100, 100, 100, "test", "online", new List<Payment>());
 
             var terminal = new Terminal(payment, new Models.PaymentData
             {

@@ -1,8 +1,11 @@
-﻿using Financial.Treasury.Dependecies.PaymentService;
+﻿using Financial.Treasury.Dependencies;
 using Financial.Treasury.Entities;
+using Financial.Treasury.Models;
 using Financial.ZarinPal.Dependencies;
 using Financial.ZarinPal.Entities;
 using Financial.ZarinPal.Models;
+using Microsoft.Extensions.Options;
+using System;
 using System.Threading.Tasks;
 
 namespace Financial.ZarinPal
@@ -11,20 +14,27 @@ namespace Financial.ZarinPal
     {
         private readonly IZarinPalRepository _zarinPalRepository;
         private readonly IZarinPalGateWay _zarinPalGateWay;
+        private readonly ZarinPalOptions _options;
 
-        public ZarinPalService(IZarinPalRepository zarinPalRepository, IZarinPalGateWay zarinPalGateWay)
+        public string SourceName => "ZarinPal";
+
+        public ZarinPalService(IZarinPalRepository zarinPalRepository,
+            IZarinPalGateWay zarinPalGateWay,
+            IOptions<ZarinPalOptions> options)
         {
             _zarinPalRepository = zarinPalRepository;
-            this._zarinPalGateWay = zarinPalGateWay;
+            _zarinPalGateWay = zarinPalGateWay;
+            _options = options.Value;
         }
 
-        public async Task<bool> Verify(Payment payment)
+        public async Task<VerifyResultModel> Verify(Payment payment)
         {
             var terminal = _zarinPalRepository.GetTerminal(payment.Id);
+            var result = new VerifyResultModel();
 
             if (terminal == null)
             {
-                return false;
+                return result;
             }
 
             var resultObject = await _zarinPalGateWay.Verify(terminal);
@@ -32,11 +42,11 @@ namespace Financial.ZarinPal
             {
                 var verfy = new VerifyResult(terminal, resultObject.Data);
                 _zarinPalRepository.SaveVerifyResult(verfy);
-                return resultObject.Data.IsSucceded;
+                result.IsVerified = resultObject.Data.IsSucceded;
             }
 
             LogError(payment, resultObject?.Errors);
-            return false;
+            return result;
         }
 
         public async Task<bool> CreateTerminal(Payment payment)
@@ -58,6 +68,14 @@ namespace Financial.ZarinPal
         {
             var errorData = new ErrorLog(payment, error);
             _zarinPalRepository.SaveError(errorData);
+        }
+
+        public string GetPaymentLink(Payment payment)
+        {
+            if (payment.Id == default)
+                throw new InvalidOperationException("Payment Id Should Have Value");
+
+            return _options.PaymentUrl + payment.Id;
         }
     }
 }

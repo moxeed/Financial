@@ -12,11 +12,13 @@ namespace Financial.Inventory.Entities
         public ProductCategory Category { get; set; }
         public ICollection<ProductChangeLog> ChangeLogs { get; set; }
 
-        public Product()
+        public Product(string title, string description, int quantityPerStore, int price, ProductCategory category)
         {
-            Title = string.Empty;
-            Description = string.Empty;
-            Category = new ProductCategory();
+            Title = title;
+            Description = description;
+            QuantityPerStore = quantityPerStore;
+            Price = price;
+            Category = category;
             ChangeLogs = new HashSet<ProductChangeLog>();
         }
 
